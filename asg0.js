@@ -111,10 +111,14 @@ function main() {
                 drawvector(v4, 'green');
                 break;
             case 'Area':
-                cross = Vector3.cross(v1, v2)
-                areaTriangle = cross.magnitude() / 2
-                console.log('Area of the triangle:', areaTriangle)
+                cross = Vector3.cross(v1, v2);
+                areaTriangle = cross.magnitude() / 2;
+                console.log('Area of the triangle:', areaTriangle);
                 break;
+            case 'Angle Between':
+                dot = Vector3.dot(v1, v2);
+                // dot(v1, v2) = ||v1|| * ||v2|| * cos(alpha)
+                angle = Math.acos(dot / v1.magnitude / v2.magnitude);
             default:
                 console.log('Invalid operation:', operation.value, typeof operation.value);
         }
@@ -124,6 +128,6 @@ function main() {
     let drawOperationButton = document.getElementById('drawOperation');
     
     // call dunction on click
-    drawOperationButton.onclick = handleDrawOperationEvent;
+    drawOperationButton.onclick = handleDrawOperationEvent
 
 }
