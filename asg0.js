@@ -118,7 +118,11 @@ function main() {
             case 'Angle Between':
                 dot = Vector3.dot(v1, v2);
                 // dot(v1, v2) = ||v1|| * ||v2|| * cos(alpha)
-                angle = Math.acos(dot / v1.magnitude / v2.magnitude);
+                angle = Math.acos(dot / v1.magnitude() / v2.magnitude());
+                // degrees = 180/pi * radians
+                angle = (180 / Math.PI) * angle
+                console.log('Angle:', angle);
+                break;
             default:
                 console.log('Invalid operation:', operation.value, typeof operation.value);
         }
@@ -128,6 +132,6 @@ function main() {
     let drawOperationButton = document.getElementById('drawOperation');
     
     // call dunction on click
-    drawOperationButton.onclick = handleDrawOperationEvent
+    drawOperationButton.onclick = handleDrawOperationEvent;
 
 }
